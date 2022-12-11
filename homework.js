@@ -137,8 +137,7 @@ const capitalize = (str) => {
         }
     }
     // If you don't find it write the letters as they were
-    if(!found)
-    {
+    if (!found) {
         return str;
     }
     //Copy the rest of the letters if needed
@@ -159,21 +158,19 @@ const capitalizeWords = (str) => {
     let tempStr = "";
     let newStr = "";
     // Create loop to iterate over received string
-    for( let i = 0; i < str.length; i++) {
+    for (let i = 0; i < str.length; i++) {
         //If end of the string record letter to temp string capitalize and add it to returned string
-        if(i == str.length - 1) {
+        if (i == str.length - 1) {
             tempStr += str[i];
             newStr += capitalize(tempStr);
         }
         //record letter as long as it diffrent from " "
-        else if(str[i] != " ")
-        {
+        else if (str[i] != " ") {
             tempStr += str[i];
         }
         //For the first " " after a letter 1)add space 2)capitilize tempstring and add it to returned string 3)reset tempstring for next word
-        else if(i > 0 && str[i-1] != " ")
-        {
-            tempStr+=" ";
+        else if (i > 0 && str[i - 1] != " ") {
+            tempStr += " ";
             newStr += capitalize(tempStr);
             tempStr = "";
         }
@@ -197,7 +194,7 @@ const capitalizeWords = (str) => {
 
 // example:
 let str = "my name is alisa";
-console.log(capitalizeWords(str)); 
+console.log(capitalizeWords(str));
 // -> "Hey Mom"
 
 // 2.3 Reverse a string 
@@ -235,22 +232,19 @@ const trim = (str2) => {
     // }
     // return ret;
     let i = 0;
-    let j = str2.length-1;
-    let newString="";
+    let j = str2.length - 1;
+    let newString = "";
     //Find begining of string without spaces
-    while(str2[i] == " ")
-    {
+    while (str2[i] == " ") {
         i++;
     }
     //Find end of string without spaces
-    while(str2[j] ==" ")
-    {
+    while (str2[j] == " ") {
         j--;
     }
     //Copy string from start to finish
-    for(;i<=j;i++)
-    {
-        newString+=str2[i];
+    for (; i <= j; i++) {
+        newString += str2[i];
     }
     return newString;
 };
@@ -274,11 +268,24 @@ console.log(trim(str2));
 // fibunacci sequence - https://en.wikipedia.org/wiki/Fibonacci_number
 // write a function that returns the nth number in the fibonacci sequence
 
-const fibonacci = (n) => { };
+const fibonacci = (n) => {
+    let x = 0;
+    let y = 1;
+    let z = n;
+// Create a loop that adds two numbers, the number that we choose and the number before it, the sum gives you the nth sequence
+    for (let i = 2; i <= n; i++) {
+        z = x + y;
+        x = y;
+        y = z;
+    }
+
+    return z;
+};
 
 // example:
-// let n = 7;
-// console.log(fibonacci(n)); -> 13
+let n = 7;
+console.log(fibonacci(n));
+//  -> 13
 
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
